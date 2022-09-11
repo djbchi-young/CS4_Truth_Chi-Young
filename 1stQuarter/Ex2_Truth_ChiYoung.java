@@ -41,7 +41,7 @@ public class Ex2_Truth_ChiYoung {
         if(isValid){
             System.out.print("What is the upper limit of the random number ? ");
             String highLimitInput = sc.nextLine();
-        if(lowLimitInput.length() > 0) {
+        if(highLimitInput.length() > 0) {
             try {
                 highLimit = Integer.parseInt(highLimitInput);
                 isValid = true;}catch(NumberFormatException e) {
