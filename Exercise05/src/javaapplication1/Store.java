@@ -37,11 +37,16 @@ public class Store {
     else{System.out.println("There are only " + itemList.size() + " items in the store.");}
   }
   public void sellItem(String name){
+      boolean hasItem = false;
       for (Item item : itemList){
           if(item.getName().equals(name)){
+            hasItem = true;
             earnings += item.getCost();
             System.out.println(item.getName() + " has been sold.");
           }
+      }
+      if(!hasItem){
+          System.out.printf("The store does not sell %s.\n", name);
       }
   }
   public void sellItem(Item i){
