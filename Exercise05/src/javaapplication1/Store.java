@@ -31,10 +31,11 @@ public class Store {
   }
   public void sellItem(int index){
     if(index < itemList.size()){
-        earnings += itemList.get(index).getCost();
-        System.out.println(itemList.get(index).getName() + " has been sold.");
+        Item item = itemList.get(index);
+        earnings += item.getCost();
+        System.out.printf("%s has sold %s.\n", this.name, item.getName());
 	}
-    else{System.out.println("There are only " + itemList.size() + " items in the store.");}
+    else{System.out.printf("There are only %d items in %s.\n", itemList.size(), name);}
   }
   public void sellItem(String name){
       boolean hasItem = false;
@@ -42,11 +43,11 @@ public class Store {
           if(item.getName().equals(name)){
             hasItem = true;
             earnings += item.getCost();
-            System.out.println(item.getName() + " has been sold.");
+            System.out.printf("%s has sold %s.\n", this.name, name);
           }
       }
       if(!hasItem){
-          System.out.printf("The store does not sell %s.\n", name);
+          System.out.printf("%s does not sell %s.\n", this.name, name);
       }
   }
   public void sellItem(Item i){
@@ -58,7 +59,7 @@ public class Store {
         System.out.println(i.getName() + " has been sold.");
     }
     else{
-        System.out.println("That store does not sell that item");
+        System.out.printf("%s does not sell %s.\n", name, i.getName());
     }
     
   }
@@ -87,9 +88,9 @@ public class Store {
       }
   }
   public static void printStats(){
-    // loop over storeList and print the name and the earnings'Store.java'
+    // loop over storeList and print the name and the earnings
     for(Store store : storeList){
-        System.out.println(store.getName() + " has earned " + store.getEarnings());
+        System.out.printf("%s has earned %.2f.\n", store.getName(), store.getEarnings());
     }
   }
 }
